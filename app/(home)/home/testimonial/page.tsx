@@ -5,7 +5,7 @@ import React from "react";
 import ServiceCard from "@/app/(home)/home/services/_components/ServiceCard";
 import { images } from "@/images/images";
 
-const ServicesPage = () => {
+const Testimonial = () => {
   const { photo1, matrix, brand, digital, social, web } = images();
 
   const services = [
@@ -45,7 +45,7 @@ const ServicesPage = () => {
           className="flex w-full items-center justify-between gap-5 h-17.5 "
         >
           <motion.p className="text-lg md:text-base w-auto h-6 font-light text-white leading-tight uppercase">
-            Services
+            Testimonials
           </motion.p>
 
           <motion.div className="flex-1 h-px bg-[#FFF7EB40]"></motion.div>
@@ -138,4 +138,4 @@ const ServicesPage = () => {
   );
 };
 
-export default ServicesPage;
+export default Testimonial;

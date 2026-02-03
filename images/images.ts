@@ -10,6 +10,10 @@ import brand from "./assets/bRANDS.jpg";
 import digital from "./assets/Digital.jpg";
 import social from "./assets/Social Media Manager.jpg";
 import web from "./assets/web developer.jpg";
+import travel from "./assets/Travel.png";
+import greenlife from "./assets/Greenlife.png";
+import techconnect from "./assets/Techconnect.png";
+import process from "./assets/Process.png";
 
 export const images = () => {
   return {
@@ -25,5 +29,9 @@ export const images = () => {
     digital,
     social,
     web,
+    travel,
+    greenlife,
+    techconnect,
+    process,
   };
 };

@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { images } from "@/images/images";
 import ServicesPage from "./services/page";
+import Work from "./works/page";
+import Process from "./process/page";
 
 const LandingPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -158,6 +160,12 @@ const LandingPage = () => {
 
       <section className="w-full">
         <ServicesPage />
+      </section>
+      <section className="w-full">
+        <Work />
+      </section>
+      <section className="w-full">
+        <Process />
       </section>
     </div>
   );

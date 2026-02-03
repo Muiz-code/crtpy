@@ -52,7 +52,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       transition={{ duration: 0.6, delay }}
       viewport={{ once: true, amount: 0.2 }}
       onClick={onClick}
-      className={`relative group overflow-hidden cursor-pointer w-full h-56 sm:h-72 md:h-96 hover:rounded-[40px_0px_40px_40px] border-0 transition-all duration-300 ${className}`}
+      className={`relative group overflow-hidden cursor-pointer w-full h-72 md:h-96 hover:rounded-[40px_0px_40px_40px] border-0 transition-all duration-300 ${className}`}
     >
       {/* Background Image */}
       <Image
@@ -69,7 +69,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       <div className="absolute inset-0 bg-[#2A6F85]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
       {/* Corner Icon */}
-      <div className="absolute top-6 right-6 w-10 h-10 border border-white rounded-full flex items-center justify-center group-hover:bg-white/10 transition-all duration-300 group-hover:rotate-45">
+      <div className="absolute top-6 right-6 w-10 h-10 border border-white rounded-full flex items-center justify-center group-hover:bg-white/10 transition-all duration-300 group-hover:rotate-45 rotate-45 md:rotate-0">
         <ArrowUpRight className="w-5 h-5 text-white" strokeWidth={1.5} />
       </div>
 
