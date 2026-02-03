@@ -43,7 +43,7 @@ const Process = () => {
   const displayedStep = hoveredStep !== null ? hoveredStep : activeStep;
 
   return (
-    <div className="min-h-screen w-full pb-12 md:pb-200 px-2 md:px-0">
+    <div className="min-h-screen w-full pb-5 md:pb-0 px-2 md:px-0">
       <div className="mx-auto pt-6 md:pt-10 w-full flex flex-col gap-4 md:gap-6 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

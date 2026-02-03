@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 export default function Loader() {
-  const text = "CRTFY";
+  const text = "TWELVE";
   const characters = text.split("");
 
   const containerVariants = {

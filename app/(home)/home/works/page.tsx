@@ -35,7 +35,7 @@ const Work = () => {
     },
   ];
   return (
-    <div className="min-h-screen w-full pb-12 md:pb-20 px-2 md:px-0">
+    <div className="min-h-screen w-full pb-12 md:pb-0 px-2 md:px-0">
       <div className="mx-auto pt-3 md:pt-0 w-full flex flex-col gap-4 md:gap-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

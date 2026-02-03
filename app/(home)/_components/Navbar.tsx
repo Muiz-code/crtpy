@@ -30,7 +30,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
               <span className="text-[28px] font-bold text-white">
-                CRTFY<span className="text-cyan-400">®</span>
+                TWELVE<span className="text-cyan-400">®</span>
               </span>
             </Link>
 

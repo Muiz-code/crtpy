@@ -10,6 +10,7 @@ import { images } from "@/images/images";
 import ServicesPage from "./services/page";
 import Work from "./works/page";
 import Process from "./process/page";
+import Testimonial from "./testimonial/page";
 
 const LandingPage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -166,6 +167,9 @@ const LandingPage = () => {
       </section>
       <section className="w-full">
         <Process />
+      </section>
+      <section className="w-full">
+        <Testimonial />
       </section>
     </div>
   );
