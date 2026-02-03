@@ -3,6 +3,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
+import { images } from "@/images/images";
+
+const { colum } = images();
 
 interface TestimonialCardProps {
   /**
@@ -44,17 +47,11 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
       viewport={{ once: true, amount: 0.2 }}
-      className="flex-shrink-0 w-full sm:w-[350px] md:w-[380px] p-6 md:p-8 rounded-xl border border-[#4AA8C4]/30 bg-[#0a1419]/40 backdrop-blur-sm hover:border-[#4AA8C4]/60 transition-all duration-300 group"
+      className="flex-shrink-0 w-[300px] md:w-[600px] h-[352px] p-6 md:p-8 rounded-xl border border-[#4AA8C4]/30 bg-[#0a1419]/40 backdrop-blur-sm hover:border-[#4AA8C4]/60 transition-all duration-300 group"
     >
       {/* Quote Mark */}
-      <div className="mb-6">
-        <svg
-          className="w-8 h-8 text-[#4AA8C4]"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path d="M3 21c3 0 7-1 7-8V5c0-1.25-4.156-5-10-5-5.844 0-10 3.75-10 5v6c0 1 0 4 6 4 1 0 11 0 11-4s-10-3-10-3-4-3-4-7 1-5 5-5 5.375 3 5.375 3h5.062c0 0 0-4.375-7.437-4.375-9.032 0-13.562 4.531-13.562 10.969 0 6.438 4.531 10.906 13.562 10.906 6.062 0 7.438-3.531 7.438-3.531s1.125 3.531 1.125 3.531v2.844c0 2-1.531 4.219-7.438 4.219z" />
-        </svg>
+      <div className="mb-6 w-[32px] h-[24px]">
+        <Image src={colum} alt={""} />
       </div>
 
       {/* Quote Text */}

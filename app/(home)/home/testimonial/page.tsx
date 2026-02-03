@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import TestimonialCard from "@/app/(home)/home/testimonial/_components/TestimonialCard";
 import { images } from "@/images/images";
@@ -9,11 +9,12 @@ import { images } from "@/images/images";
 const Testimonial = () => {
   const { photo1 } = images();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
   const testimonials = [
     {
       id: 1,
-      name: "Jane Smith",
+      name: "Jane",
       company: "Emporium & Co.",
       quote:
         "Craftly's team went above and beyond to deliver a website that perfectly represents our brand. Their attention to detail and creative vision truly impressed us as business owners who need branding.",
@@ -21,7 +22,7 @@ const Testimonial = () => {
     },
     {
       id: 2,
-      name: "Mark Johnson",
+      name: "Mark",
       company: "GreenLife.org",
       quote:
         "The results we achieved through Craftly's digital marketing strategies were outstanding. They helped us reach a wider audience and dramatically increase conversions within our targeted timeline.",
@@ -29,7 +30,31 @@ const Testimonial = () => {
     },
     {
       id: 3,
-      name: "Sarah Williams",
+      name: "Sarah",
+      company: "TechVision Inc.",
+      quote:
+        "Working with Craftly was a game-changer for our brand. Their strategic approach and innovative solutions elevated our digital presence to new heights.",
+      image: photo1,
+    },
+    {
+      id: 4,
+      name: "Smith",
+      company: "Emporium & Co.",
+      quote:
+        "Craftly's team went above and beyond to deliver a website that perfectly represents our brand. Their attention to detail and creative vision truly impressed us as business owners who need branding.",
+      image: photo1,
+    },
+    {
+      id: 5,
+      name: "Johnson",
+      company: "GreenLife.org",
+      quote:
+        "The results we achieved through Craftly's digital marketing strategies were outstanding. They helped us reach a wider audience and dramatically increase conversions within our targeted timeline.",
+      image: photo1,
+    },
+    {
+      id: 6,
+      name: "Williams",
       company: "TechVision Inc.",
       quote:
         "Working with Craftly was a game-changer for our brand. Their strategic approach and innovative solutions elevated our digital presence to new heights.",
@@ -37,19 +62,51 @@ const Testimonial = () => {
     },
   ];
 
+  // Show 2 cards at a time, so we increment by 2
+  const cardsPerView = 2;
+  const maxIndex = Math.ceil(testimonials.length / cardsPerView);
+
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setCurrentIndex((prev) => (prev + 1) % maxIndex);
+    resetAutoPlay();
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? testimonials.length - 1 : prev - 1,
-    );
+    setCurrentIndex((prev) => (prev === 0 ? maxIndex - 1 : prev - 1));
+    resetAutoPlay();
   };
+
+  const handleDotClick = (index: number) => {
+    setCurrentIndex(index);
+    resetAutoPlay();
+  };
+
+  const resetAutoPlay = () => {
+    if (autoPlayRef.current) {
+      clearInterval(autoPlayRef.current);
+    }
+    startAutoPlay();
+  };
+
+  const startAutoPlay = () => {
+    autoPlayRef.current = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % maxIndex);
+    }, 5000); // Auto-play every 5 seconds
+  };
+
+  // Start auto-play on mount
+  useEffect(() => {
+    startAutoPlay();
+    return () => {
+      if (autoPlayRef.current) {
+        clearInterval(autoPlayRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className="min-h-screen w-full pb-12 md:pb-20 px-4 sm:px-6 md:px-0">
-      <div className="mx-auto pt-6 md:pt-10 w-full flex flex-col gap-4 md:gap-6 max-w-7xl">
+      <div className="mx-auto pt-6 md:pt-10 w-full flex flex-col gap-2 md:gap-6 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -64,81 +121,97 @@ const Testimonial = () => {
         </motion.div>
 
         {/* Heading */}
-        <motion.div
-          className="w-full text-[#FFF7EB]"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <div className="flex items-start gap-2 md:gap-4">
+        <div className="w-full flex flex-col md:flex-row items-center justify-between">
+          <motion.div
+            className="md:w-[645px] w-full text-[#FFF7EB]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-start gap-2 md:gap-4">
+              <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-[80px] font-bold md:font-semibold leading-tight">
+                WHAT{" "}
+                <span
+                  style={{
+                    WebkitTextStroke: "2px white",
+                    color: "transparent",
+                  }}
+                >
+                  THEY SAY{" "}
+                </span>
+              </h1>
+            </div>
             <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-[80px] font-bold md:font-semibold leading-tight">
-              WHAT{" "}
-              <span
-                style={{
-                  WebkitTextStroke: "2px white",
-                  color: "transparent",
-                }}
-              >
-                THEY SAY{" "}
-              </span>
+              ABOUT US
             </h1>
-          </div>
-          <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-[80px] font-bold md:font-semibold leading-tight">
-            ABOUT US
-          </h1>
-        </motion.div>
+          </motion.div>
+          <motion.p className="md:w-[500px] w-full text-[12px] md:text-[16px] font-light text-[#fff7eb85]">
+            Step into the success stories of our clients through our reviews
+            section, where real businesses share their transformative
+            experiences, showcasing the tangible digital marketing results.
+          </motion.p>
+        </div>
 
         {/* Testimonials Carousel */}
-        <div className="mt-12 md:mt-16">
-          <div className="flex items-center justify-between mb-8">
-            {/* Testimonial Cards Slider */}
-            <div className="flex-1 overflow-hidden">
-              <motion.div
-                className="flex gap-6 md:gap-8"
-                animate={{ x: -currentIndex * (100 + 24) + "%" }}
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              >
-                {testimonials.map((testimonial, index) => (
-                  <TestimonialCard
-                    key={testimonial.id}
-                    name={testimonial.name}
-                    company={testimonial.company}
-                    quote={testimonial.quote}
-                    image={testimonial.image}
-                    delay={index * 0.1}
-                  />
-                ))}
-              </motion.div>
-            </div>
-
+        <div className="mt-0 md:mt-0 relative w-full">
+          {/* Top Section with Arrows */}
+          <div className="flex items-center justify-end mb-8">
             {/* Navigation Arrows */}
-            <div className="flex gap-4 ml-6 flex-shrink-0">
+            <div className="flex gap-4">
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={prevSlide}
-                className="w-10 h-10 rounded-full border border-[#4AA8C4] flex items-center justify-center text-[#4AA8C4] hover:bg-[#4AA8C4]/10 transition-colors duration-300"
+                className="w-10 h-10 flex items-center justify-center text-[#4AA8C4] hover:bg-[#4AA8C4]/10 transition-colors duration-300"
               >
-                <ChevronLeft className="w-5 h-5" />
+                <ChevronLeft />
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={nextSlide}
-                className="w-10 h-10 rounded-full border border-[#4AA8C4] flex items-center justify-center text-[#4AA8C4] hover:bg-[#4AA8C4]/10 transition-colors duration-300"
+                className="w-10 h-10 flex items-center justify-center text-[#4AA8C4] hover:bg-[#4AA8C4]/10 transition-colors duration-300"
               >
-                <ChevronRight className="w-5 h-5" />
+                <ChevronRight />
               </motion.button>
             </div>
           </div>
 
+          {/* Testimonial Cards Slider - 2 Cards Per View */}
+          <div className="w-full overflow-x-hidden">
+            <motion.div
+              className="flex w-full"
+              style={{ gap: "24px" }}
+              animate={{
+                x: -currentIndex * 100 + "%",
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            >
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={testimonial.id}
+                  style={{ minWidth: "calc((100% - 40px) / 2)" }}
+                  className="flex-shrink-0"
+                >
+                  <TestimonialCard
+                    name={testimonial.name}
+                    company={testimonial.company}
+                    quote={testimonial.quote}
+                    image={testimonial.image}
+                    delay={index * 0.05}
+                  />
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
           {/* Slide Indicators */}
-          <div className="flex gap-2 justify-center">
-            {testimonials.map((_, index) => (
+          <div className="flex gap-2 justify-center mt-12">
+            {Array.from({ length: maxIndex }).map((_, index) => (
               <motion.button
                 key={index}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => handleDotClick(index)}
                 className={`h-2 transition-all duration-300 ${
                   index === currentIndex
                     ? "w-8 bg-[#4AA8C4]"
