@@ -49,30 +49,36 @@ const Work = () => {
 
           <motion.div className="flex-1 h-px bg-[#FFF7EB40]"></motion.div>
         </motion.div>
-        <div className="">
+        <div className="flex justify-between items-end w-full mb-10 md:mb-20">
           <motion.div
-            className="w-full text-[#FFF7EB]"
+            className="w-full flex justify-between items-start text-[#FFF7EB]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="flex items-start gap-2 md:gap-4">
+            <div>
+              <div className="flex items-start gap-2 md:gap-4">
+                <h1 className="text-[25px] md:text-[80px] font-bold md:font-semibold leading-tight">
+                  OUR{" "}
+                  <span
+                    style={{
+                      WebkitTextStroke: "2px white",
+                      color: "transparent",
+                    }}
+                  >
+                    Latest{" "}
+                  </span>
+                </h1>
+              </div>
               <h1 className="text-[25px] md:text-[80px] font-bold md:font-semibold leading-tight">
-                OUR{" "}
-                <span
-                  style={{
-                    WebkitTextStroke: "2px white",
-                    color: "transparent",
-                  }}
-                >
-                  Latest{" "}
-                </span>
+                PROJECTS
               </h1>
             </div>
-            <h1 className="text-[25px] md:text-[80px] font-bold md:font-semibold leading-tight">
-              PROJECTS
-            </h1>
           </motion.div>
+
+          <button className="md:w-[189px] w-[120px] text-[10px] text-center md:text-[16px] text-[#4AA8C4] font-light border-1 border-[#4AA8C4] rounded-[100px] md:p-[8px_32px] p-[5px_12px] hover:scale-102 cursor-pointer transition-all duration-300">
+            More Projects
+          </button>
         </div>
 
         {/* Work Cards List */}
