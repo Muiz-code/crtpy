@@ -41,7 +41,7 @@ const Footer = () => {
                   WebkitTextStroke: "2px #4AA8C4",
                   color: "transparent",
                 }}
-                className="absolute md:top-0 top-[-18%] md:left-[-21%] left-[-7%] text-[70px] md:text-[124.49px] font-bold md:font-semibold leading-tight opacity-25"
+                className="absolute md:top-0 top-[-30%] md:left-[-21%] left-[-5%] text-[70px] md:text-[124.49px] font-bold md:font-semibold leading-tight opacity-25"
               >
                 TWELVE<span className="">®</span>
               </h1>
