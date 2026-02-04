@@ -172,7 +172,6 @@ const LandingPage = () => {
       <section className="w-full">
         <Testimonial />
       </section>
-      <section className="text-red-500">missing</section>
 
       <section className="w-full">
         <Faqs />

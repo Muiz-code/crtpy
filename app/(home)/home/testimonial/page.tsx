@@ -243,8 +243,151 @@ const Testimonial = () => {
           </div>
         </div>
       </div>
+
+      <div className="w-full overflow-hidden flex flex-col">
+        <div className="mt-10 md:mt-32 w-full flex">
+          {/* Video Section - Full Width */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative w-full aspect-video bg-black overflow-hidden group"
+          >
+            {/* Video Placeholder */}
+            <video
+              className="w-full h-full object-cover"
+              poster="https://via.placeholder.com/800x450"
+            >
+              {/* Add your video source here later */}
+              <source src="" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            {/* Play Button Overlay */}
+            <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition-colors">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <svg
+                  className="w-8 h-8 md:w-10 md:h-10 text-black ml-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                </svg>
+              </motion.button>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Stats Section - Constrained Width */}
+        <div className="w-full flex flex-col justify-between items-center mt-10 md:mt-32">
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col gap-8 w-full"
+          >
+            {/* Stats Grid */}
+            <div className="flex flex-col md:flex-row md:justify-between md-gap-0 gap-10">
+              {/* Stat 1: Projects */}
+              <motion.div className="md:h-[128px] h-auto rounded-lg ">
+                <div className="flex items-center gap-2">
+                  <span className="text-4xl md:text-[80px] font-semibold text-[#FFF7EB]">
+                    <CountUp end={2800} duration={2.5} />
+                  </span>
+                  <span className="text-4xl md:text-[80px] font-semibold text-white">
+                    +
+                  </span>
+                </div>
+                <p className="text-sm md:text-[20px] text-[#fff7eb85] mt-3">
+                  Successful Projects
+                </p>
+              </motion.div>
+
+              {/* Stat 2: Satisfaction Rate */}
+              <motion.div className="md:h-[128px] h-auto rounded-lg ">
+                <div className="flex items-center gap-2">
+                  <span className="text-4xl md:text-[80px] font-semibold text-[#FFF7EB]">
+                    <CountUp end={95} duration={2.5} />
+                  </span>
+                  <span className="text-4xl md:text-[80px] font-semibold text-white">
+                    %
+                  </span>
+                </div>
+                <p className="text-sm md:text-[20px] text-[#fff7eb85] mt-3">
+                  Client Satisfaction Rate
+                </p>
+              </motion.div>
+
+              {/* Stat 3: Social Media Followers */}
+              <motion.div className="md:h-[128px] h-auto rounded-lg ">
+                <div className="flex items-center gap-2">
+                  <span className="text-4xl md:text-[80px] font-semibold text-[#FFF7EB]">
+                    <CountUp end={20000} duration={2.5} />
+                  </span>
+                  <span className="text-4xl md:text-[80px] font-semibold text-white">
+                    +
+                  </span>
+                </div>
+                <p className="text-sm md:text-[20px] text-[#fff7eb85] mt-3">
+                  Active Social Media Followers
+                </p>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
+};
+
+// CountUp Component for animated numbers
+const CountUp = ({ end, duration }: { end: number; duration: number }) => {
+  const [count, setCount] = React.useState(0);
+  const [hasStarted, setHasStarted] = React.useState(false);
+  const ref = React.useRef<HTMLSpanElement>(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true);
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasStarted]);
+
+  React.useEffect(() => {
+    if (!hasStarted) return;
+
+    let startTime: number;
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / (duration * 1000), 1);
+      const currentCount = Math.floor(progress * end);
+      setCount(currentCount);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    const animationId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationId);
+  }, [hasStarted, end, duration]);
+
+  return <span ref={ref}>{count}</span>;
 };
 
 export default Testimonial;

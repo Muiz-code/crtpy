@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { images } from "@/images/images";
 
@@ -28,7 +27,7 @@ const FaqItem: React.FC<FaqItemProps> = ({
         onClick={onClick}
       >
         <h3
-          className={`text-lg md:text-[32px] font-medium transition-colors duration-300 ${
+          className={`text-md md:text-[32px] font-medium transition-colors duration-300 ${
             isOpen ? "text-[#4AA8C4]" : "text-white"
           }`}
         >
@@ -42,7 +41,7 @@ const FaqItem: React.FC<FaqItemProps> = ({
           <Image
             src={arrow}
             alt={""}
-            className={`w-6 h-auto transition-colors duration-300 ${
+            className={`md:w-6 w-3 h-auto transition-colors duration-300 ${
               isOpen ? "text-[#4AA8C4]" : "text-white"
             }`}
           />
@@ -59,7 +58,7 @@ const FaqItem: React.FC<FaqItemProps> = ({
             }}
             exit={{ opacity: 0, height: 0, marginTop: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="text-gray-300 text-sm md:text-base"
+            className="text-gray-300 text-[12px] md:text-base"
           >
             {answer}
           </motion.div>

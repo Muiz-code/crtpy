@@ -8,7 +8,7 @@ const FaqsPage = () => {
 
   const faqs = [
     {
-      question: "What services does Cratify provide?",
+      question: "What services does Twelve provide?",
       answer:
         "We provide a wide range of services including web design, web development, branding, social media marketing, and SEO.",
     },
@@ -23,7 +23,7 @@ const FaqsPage = () => {
         "Our pricing varies depending on the scope of the project. We offer customized quotes to fit your specific needs and budget.",
     },
     {
-      question: "How do I get started with Cratify?",
+      question: "How do I get started with Twelve?",
       answer:
         "Getting started is easy! Simply contact us through our website to schedule a free consultation. We'll discuss your project and provide a detailed proposal.",
     },
@@ -34,7 +34,7 @@ const FaqsPage = () => {
   };
 
   return (
-    <div className="min-h-screen w-full pb-5 md:pb-0 px-2 sm:px-6 md:px-0">
+    <div className="h-auto w-full pb-10 md:pb-30 px-2 sm:px-6 md:px-0">
       <div className="mx-auto pt-6 md:pt-10  w-full flex flex-col gap-2 md:gap-6 max-w-7xl">
         {/* Header */}
         <motion.div
@@ -48,7 +48,7 @@ const FaqsPage = () => {
           </p>
           <div className="flex-1 h-px bg-[#FFF7EB40]"></div>
         </motion.div>
-        <div className="md:pl-[80px] pl-2 flex flex-col gap-3 md:gap-[56px]">
+        <div className="md:pl-[80px] pl-0 flex flex-col gap-3 md:gap-[56px]">
           {/* Title */}
           <motion.div
             className="w-full text-[#FFF7EB]"
