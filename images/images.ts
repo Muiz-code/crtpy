@@ -22,6 +22,10 @@ import projectBg from "./assets/projectBg.jpg";
 import servicesBg from "./assets/servicesBg.jpg";
 import AboutUsImg1 from "./assets/AboutUsImg1.jpg";
 import AboutUsImg2 from "./assets/AboutUsImg2.jpg";
+import creativity from "./assets/creativity.png";
+import excellence from "./assets/excellence.png";
+import innovation from "./assets/innovation.png";
+import teamwork from "./assets/Teamwork.png";
 
 export const images = () => {
   return {
@@ -49,5 +53,9 @@ export const images = () => {
     servicesBg,
     AboutUsImg1,
     AboutUsImg2,
+    creativity,
+    excellence,
+    innovation,
+    teamwork,
   };
 };
