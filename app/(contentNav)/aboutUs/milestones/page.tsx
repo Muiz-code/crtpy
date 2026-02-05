@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect, useRef } from "react";
 import SectionIndicator from "../../_components/SectionIndicator";
 import { motion } from "framer-motion";
