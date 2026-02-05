@@ -129,7 +129,7 @@ const AboutUs = () => {
           </div>
           {/* Statistics Section */}
 
-          <div className="flex md:flex-row flex-col gap-8 md:gap-12 justify-between mx-auto w-full items-center mb-10 md:mb-0 md:mt-20">
+          <div className="flex md:flex-row flex-col gap-8 md:gap-12 justify-between mx-auto w-full items-center mb-10 md:mb-0 md:mt-20 mt-5">
             {/* Stat 1 */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}

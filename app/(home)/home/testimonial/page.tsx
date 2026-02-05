@@ -28,7 +28,7 @@ const Testimonial = () => {
       name: "Jane",
       company: "Emporium & Co.",
       quote:
-        "Craftly's team went above and beyond to deliver a website that perfectly represents our brand. Their attention to detail and creative vision truly impressed us as business owners who need branding.",
+        "Twelve's team went above and beyond to deliver a website that perfectly represents our brand. Their attention to detail and creative vision truly impressed us as business owners who need branding.",
       image: photo1,
     },
     {
@@ -36,7 +36,7 @@ const Testimonial = () => {
       name: "Mark",
       company: "GreenLife.org",
       quote:
-        "The results we achieved through Craftly's digital marketing strategies were outstanding. They helped us reach a wider audience and dramatically increase conversions within our targeted timeline.",
+        "The results we achieved through Twelve's digital marketing strategies were outstanding. They helped us reach a wider audience and dramatically increase conversions within our targeted timeline.",
       image: photo1,
     },
     {
@@ -44,7 +44,7 @@ const Testimonial = () => {
       name: "Sarah",
       company: "TechVision Inc.",
       quote:
-        "Working with Craftly was a game-changer for our brand. Their strategic approach and innovative solutions elevated our digital presence to new heights.",
+        "Working with Twelve was a game-changer for our brand. Their strategic approach and innovative solutions elevated our digital presence to new heights.",
       image: photo1,
     },
     {
@@ -52,7 +52,7 @@ const Testimonial = () => {
       name: "Smith",
       company: "Emporium & Co.",
       quote:
-        "Craftly's team went above and beyond to deliver a website that perfectly represents our brand. Their attention to detail and creative vision truly impressed us as business owners who need branding.",
+        "Twelve's team went above and beyond to deliver a website that perfectly represents our brand. Their attention to detail and creative vision truly impressed us as business owners who need branding.",
       image: photo1,
     },
     {
@@ -60,7 +60,7 @@ const Testimonial = () => {
       name: "Johnson",
       company: "GreenLife.org",
       quote:
-        "The results we achieved through Craftly's digital marketing strategies were outstanding. They helped us reach a wider audience and dramatically increase conversions within our targeted timeline.",
+        "The results we achieved through Twelve's digital marketing strategies were outstanding. They helped us reach a wider audience and dramatically increase conversions within our targeted timeline.",
       image: photo1,
     },
     {
@@ -68,7 +68,7 @@ const Testimonial = () => {
       name: "Williams",
       company: "TechVision Inc.",
       quote:
-        "Working with Craftly was a game-changer for our brand. Their strategic approach and innovative solutions elevated our digital presence to new heights.",
+        "Working with Twelve was a game-changer for our brand. Their strategic approach and innovative solutions elevated our digital presence to new heights.",
       image: photo1,
     },
   ];

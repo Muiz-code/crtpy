@@ -16,7 +16,7 @@ const milestones: Milestone[] = [
     year: "2019",
     title: "Company Launch",
     description:
-      "Established Craftify, the creative digital marketing agency, with a vision to provide innovative solutions to clients.",
+      "Established Twelve, the creative digital marketing agency, with a vision to provide innovative solutions to clients.",
     side: "right",
   },
   {
@@ -30,7 +30,7 @@ const milestones: Milestone[] = [
     year: "2021",
     title: "International Expansion",
     description:
-      "Expanded our reach beyond local markets by serving international clients, and establishing a global presence for Craftify.",
+      "Expanded our reach beyond local markets by serving international clients, and establishing a global presence for Twelve.",
     side: "right",
   },
   {
