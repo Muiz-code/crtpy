@@ -16,6 +16,12 @@ import techconnect from "./assets/Techconnect.png";
 import process from "./assets/Process.png";
 import colum from "./assets/Colum.png";
 import arrow from "./assets/arrow.png";
+import aboutBg from "./assets/aboutBg.jpg";
+import contactBg from "./assets/contactBg.jpg";
+import projectBg from "./assets/projectBg.jpg";
+import servicesBg from "./assets/servicesBg.jpg";
+import AboutUsImg1 from "./assets/AboutUsImg1.jpg";
+import AboutUsImg2 from "./assets/AboutUsImg2.jpg";
 
 export const images = () => {
   return {
@@ -37,5 +43,11 @@ export const images = () => {
     process,
     colum,
     arrow,
+    aboutBg,
+    contactBg,
+    projectBg,
+    servicesBg,
+    AboutUsImg1,
+    AboutUsImg2,
   };
 };

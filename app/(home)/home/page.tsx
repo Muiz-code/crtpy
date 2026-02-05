@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Loader from "@/app/(home)/_components/Loader";
-import { Button } from "@/app/(home)/_components/ui/button";
+import Loader from "@/app/_components/Loader";
+import { Button } from "@/app/_components/ui/button";
 import Image from "next/image";
 import { images } from "@/images/images";
 import ServicesPage from "./services/page";

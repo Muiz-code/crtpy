@@ -6,7 +6,7 @@ import ServiceCard from "@/app/(home)/home/services/_components/ServiceCard";
 import { images } from "@/images/images";
 
 const ServicesPage = () => {
-  const { photo1, matrix, brand, digital, social, web } = images();
+  const { brand, digital, social, web } = images();
 
   const services = [
     {
@@ -99,7 +99,7 @@ const ServicesPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="flex items-start w-full px-0 md:px-[40px] py-8 md:pt-[120px]">
+            <div className="flex items-start w-full px-0 md:px-10 py-8 md:pt-30">
               <h1 className="text-[27px] md:text-[80px] font-bold md:font-semibold leading-tight">
                 &quot;Good design is like a{" "}
                 <span

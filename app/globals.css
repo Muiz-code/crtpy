@@ -4,6 +4,12 @@
 
 @import "tw-animate-css";
 
+.aboutUs {
+  background-image: url(/images/assets/aboutBg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
