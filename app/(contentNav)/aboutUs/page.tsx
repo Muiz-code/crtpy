@@ -84,7 +84,7 @@ const AboutUs = () => {
                 2023
               </motion.p>
               <motion.p className="text-[12px] font-light md:text-[20px] text-white md:w-[692px] w-full md:mr-[106px] mr-0">
-                At Cratify, we are{" "}
+                At Twelve, we are{" "}
                 <span className="text-[#4AA8C4]">
                   a creative digital marketing agency
                 </span>{" "}
