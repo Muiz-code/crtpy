@@ -26,6 +26,7 @@ import creativity from "./assets/creativity.png";
 import excellence from "./assets/excellence.png";
 import innovation from "./assets/innovation.png";
 import teamwork from "./assets/Teamwork.png";
+import grow from "./assets/growurbusiness.jpg";
 
 export const images = () => {
   return {
@@ -57,5 +58,6 @@ export const images = () => {
     excellence,
     innovation,
     teamwork,
+    grow,
   };
 };
