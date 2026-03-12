@@ -56,14 +56,14 @@ const LandingPage = () => {
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
                 <div className="flex items-start gap-2 sm:gap-3 md:gap-4">
-                  <h1 className="text-[40px] md:text-[120px] font-semibold leading-tight">
+                  <h1 className="text-[40px] md:text-[100px] font-semibold leading-tight">
                     NOT MORE VIDEOS
                   </h1>
                   <h5 className="text-sm md:text-[32px] font-medium mt-2 md:mt-5">
                     But
                   </h5>
                 </div>
-                <h1 className="text-[40px] md:text-[120px] font-semibold leading-tight">
+                <h1 className="text-[40px] md:text-[100px] font-semibold leading-tight">
                   THE{" "}
                   <span
                     style={{
