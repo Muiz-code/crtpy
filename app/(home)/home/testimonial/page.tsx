@@ -72,7 +72,7 @@ const Testimonial = () => {
       image: logo1,
     },
     {
-      id: 6,
+      id: 7,
       name: "Aolat Akanni",
       company: "CEO Prosperity Edge Consulting",
       quote:

@@ -4,9 +4,21 @@ import { motion } from "framer-motion";
 import React from "react";
 import ServiceCard from "@/app/(home)/home/services/_components/ServiceCard";
 import { images } from "@/images/images";
+import Link from "next/link";
 
 const ServicesPage = () => {
   const { brand, digital, social, web } = images();
+
+  const slugify = (text: string) => {
+    return text
+      .toString()
+      .toLowerCase()
+      .replace(/\s+/g, "-") // Replace spaces with -
+      .replace(/[^\w\-]+/g, "") // Remove all non-word chars
+      .replace(/\-\-+/g, "-") // Replace multiple - with single -
+      .replace(/^-+/, "") // Trim - from start of text
+      .replace(/-+$/, ""); // Trim - from end of text
+  };
 
   const services = [
     {
@@ -14,6 +26,7 @@ const ServicesPage = () => {
       title: "Script-to-Screen",
       description:
         "Done-for-you personal brand video creation - from blank page to final edit.",
+      slug: "script-to-screen",
       image: brand,
     },
     {
@@ -34,6 +47,7 @@ const ServicesPage = () => {
       title: "Video Course Creation",
       description:
         "Turn your expertise into a structured, high-quality digital product.",
+      slug: "video-course-creation",
       image: web,
     },
   ];
@@ -82,7 +96,12 @@ const ServicesPage = () => {
         {/* Service Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-10 mt-8 sm:mt-10 md:mt-12 w-full">
           {services.map((service, index) => (
-            <div key={service.id} className="flex justify-between">
+            <Link
+              href={`/services/${slugify(service.title)}`}
+              key={service.id}
+              className="flex justify-between"
+              onClick={() => sessionStorage.setItem("landingScrollY", String(window.scrollY))}
+            >
               <ServiceCard
                 image={service.image}
                 title={service.title}
@@ -91,7 +110,7 @@ const ServicesPage = () => {
                 onClick={() => console.log(`${service.title} clicked`)}
                 className="w-full"
               />
-            </div>
+            </Link>
           ))}
         </div>
 
@@ -122,7 +141,7 @@ const ServicesPage = () => {
                 >
                   intentionally
                 </span>
-                , you're building authority on{" "}
+                , you&apos;re building authority on{" "}
                 <span
                   style={{
                     WebkitTextStroke: "2px white",

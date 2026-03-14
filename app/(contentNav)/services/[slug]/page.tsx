@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -17,6 +17,7 @@ interface ServiceDetail {
 
 const ServiceDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
+  const router = useRouter();
   const { brand, digital, social, web, grow } = images();
 
   const SERVICES: ServiceDetail[] = [
@@ -62,6 +63,20 @@ const ServiceDetailPage = () => {
         "A suite of supporting video assets",
       ],
     },
+    {
+      slug: "video-course-creation",
+      title: "VIDEO COURSE CREATION",
+      description:
+        "Turn your expertise into a structured, high-quality digital product. We help you design, script, film, and produce a complete online course that reflects your authority and teaches with clarity.",
+      image: web,
+      details: [
+        "Course structure and curriculum design",
+        "Script writing and content organisation",
+        "Professional filming and audio recording",
+        "Editing, graphics, and on-screen visuals",
+        "Final delivery ready for any course platform",
+      ],
+    },
   ];
 
   const service = SERVICES.find((s) => s.slug === slug);
@@ -70,12 +85,12 @@ const ServiceDetailPage = () => {
     return (
       <div className="min-h-screen bg-[#0a1419] flex flex-col items-center justify-center gap-6">
         <p className="text-[#FFF7EB] text-2xl">Service not found.</p>
-        <Link
-          href="/services"
+        <button
+          onClick={() => router.back()}
           className="flex items-center gap-2 text-[#4AA8C4] hover:underline"
         >
           <ArrowLeft className="w-4 h-4" /> Back to Services
-        </Link>
+        </button>
       </div>
     );
   }
@@ -97,12 +112,12 @@ const ServiceDetailPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <Link
-              href="/services"
+            <button
+              onClick={() => router.back()}
               className="flex items-center gap-2 text-[#4AA8C4] text-sm mb-6 hover:underline w-fit"
             >
               <ArrowLeft className="w-4 h-4" /> Back to Services
-            </Link>
+            </button>
             <p className="text-sm text-[#4AA8C4] uppercase tracking-widest mb-2">
               Home / Services / {service.title}
             </p>

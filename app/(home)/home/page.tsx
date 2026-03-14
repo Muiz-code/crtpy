@@ -27,6 +27,21 @@ const LandingPage = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    if (!isLoading) {
+      const savedY = sessionStorage.getItem("landingScrollY");
+      if (savedY) {
+        sessionStorage.removeItem("landingScrollY");
+        // Double rAF ensures the DOM is fully painted before scrolling
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            window.scrollTo({ top: Number(savedY), behavior: "instant" });
+          });
+        });
+      }
+    }
+  }, [isLoading]);
+
   if (isLoading) {
     return <Loader />;
   }
@@ -85,7 +100,7 @@ const LandingPage = () => {
                 <motion.div className="hidden md:block md:w-46 w-10 h-px bg-[#FFF7EB40]"></motion.div>
 
                 <motion.p
-                  className="text-[#FFF7EB] text-sm md:text-base text-center md:text-left font-light order-2 md:order-none md:w-[450px]"
+                  className="text-[#FFF7EB] text-sm md:text-base text-center md:text-left font-light order-2 md:order-0 md:w-[450px]"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
